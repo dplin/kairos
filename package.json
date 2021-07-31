@@ -16,7 +16,9 @@
     "tina-graphql-gateway-cli": "0.2.41"
   },
   "dependencies": {
+    "html-loader": "^2.1.2",
     "next": "10.0.5",
+    "raw-loader": "^4.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^17.0.2",
@@ -29,5 +31,10 @@
   },
   "resolutions": {
     "final-form": "4.20.1"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

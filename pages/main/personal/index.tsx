@@ -1,9 +1,7 @@
-import { LandingPage } from "../components/landing-page";
-import { Template } from "../components/helper-components";
-import Quote from "../components/article/quote";
-
-import type { MarketingPages_Document } from "../.tina/__generated__/types";
-import { createLocalClient, AsyncReturnType } from "../utils";
+import { LandingPage } from "../../../components/landing-page";
+import { Template } from "../../../components/helper-components";
+import type { MarketingPages_Document } from "../../../.tina/__generated__/types";
+import { createLocalClient, AsyncReturnType } from "../../../utils";
 
 export default function HomePage(
   props: AsyncReturnType<typeof getStaticProps>["props"]
@@ -12,7 +10,6 @@ export default function HomePage(
     <>
       <Template data={props.data.getMarketingPagesDocument.data}>
         <LandingPage {...props.data.getMarketingPagesDocument.data} />
-        <Quote />
       </Template>
     </>
   );

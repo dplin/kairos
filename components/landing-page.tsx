@@ -1,6 +1,7 @@
 import React from "react";
 import Markdown from "react-markdown";
 import Image from "next/image";
+
 import type { LandingPage_Doc_Data } from "../.tina/__generated__/types";
 
 export const LandingPage = (props: LandingPage_Doc_Data) => {
@@ -12,8 +13,14 @@ export const LandingPage = (props: LandingPage_Doc_Data) => {
               case "Message_Data":
                 return (
                   <React.Fragment key={`block-${block.messageHeader}`}>
-                    <h3>{block.messageHeader}</h3>
-                    <Markdown>{block.messageBody}</Markdown>
+                      <div className="content">
+                        <div className="container">
+                          <div className="card">
+                            <h3>{block.messageHeader}</h3>
+                            <Markdown>{block.messageBody}</Markdown>
+                          </div>
+                        </div>
+                    </div>
                   </React.Fragment>
                 );
               case "Image_Data":

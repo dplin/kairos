@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import '../styles/globals.css';
 
 import { EditProvider, setEditing, useEditState } from "../utils/editState";
 

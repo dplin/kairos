@@ -1,37 +1,51 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import { css } from "styled-jsx/css";
 import Link from "next/link";
 import Head from "next/head";
+import Header from "./header";
+import Footer from "./footer";
+
+// const __header_html = require('../public/header-en.html');
+
+// import page from '../includes/header/header-en.html';
+
+// console.log(Page);
+//var __header_html = {__html: Page};
+
+
+
 /**
  * For demonstration purposes, feel free to delete or modify
  * any of these components, no magic going on here!
  */
 
-export const Wrapper = (props: { children: React.ReactNode; data: object }) => {
+export const Template = (props: { children: React.ReactNode; data: object }) => {
+
+
   return (
     <>
       <Head>
-        <title>Tina</title>
+        <title>Articles</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      <Header />
       <div className="header">
         <div className="container">
           <Nav />
         </div>
       </div>
-      <div className="content">
-        <div className="container">
-          <div className="card">{props.children}</div>
-          <RawRenderer data={props.data} />
-        </div>
-      </div>
+      {props.children}
+      <RawRenderer data={props.data} />
       <style global jsx>
         {GlobalStyles}
       </style>
       <style jsx>{PageStyles}</style>
+      <Footer />
     </>
   );
 };
+
+
 
 export const GlobalStyles = css.global`
   :root {
@@ -62,34 +76,12 @@ export const GlobalStyles = css.global`
 
   body {
     margin: 0;
-    background: var(--mint-light);
   }
-`;
 
-export const PageStyles = css`
   .container {
     display: block;
     max-width: 960px;
     margin: 0 auto;
-  }
-
-  .header {
-    flex: 0 0 auto;
-    padding: 1.5rem;
-  }
-
-  .title {
-    color: var(--orange);
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0;
-  }
-
-  .content {
-    flex: 1 0 auto;
-    padding: 0 1.5rem 2rem 1.5rem;
-    color: var(--blue);
   }
 
   .card {
@@ -112,6 +104,30 @@ export const PageStyles = css`
     background: var(--gray);
     padding: 1rem 2rem;
   }
+
+  .content {
+    flex: 1 0 auto;
+    padding: 0 1.5rem 2rem 1.5rem;
+    color: var(--blue);
+  }
+`;
+
+export const PageStyles = css`
+
+
+  .header {
+    flex: 0 0 auto;
+    padding: 1.5rem;
+  }
+
+  .title {
+    color: var(--orange);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  
 `;
 
 export const RawRenderer = ({ data }) => {
